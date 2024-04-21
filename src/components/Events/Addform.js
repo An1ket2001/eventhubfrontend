@@ -45,7 +45,7 @@ const Addform = () => {
     }else{
       data.append("imagechanged",false);
     }
-    const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/updateEvents",{
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/events/updateEvents`,{
       method:"PATCH",
       headers: {
         Authorization: `Bearer ${auth.token}`,
@@ -66,7 +66,7 @@ const Addform = () => {
 
   const handleDelete=async(id)=>{
     toast.success("Succesfully Deleted the Event");
-    const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/deleteEvents",{
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/events/deleteEvents`,{
       method:"DELETE",
       headers:{
         "content-type":"application/json",
@@ -95,7 +95,7 @@ const Addform = () => {
 
     //const data={...eventData,imageDetails:imageRef.current.files[0],authorId:"6616cb4f2b543fd062acffab"}
     //Do something with the form data, like sending it to a server
-    const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/createEvent", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/events/createEvent`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${auth.token}`,
@@ -112,7 +112,7 @@ const Addform = () => {
     if (auth.token !== "") {
       const fetchVenue = async () => {
         const res = await fetch(
-          "http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/location/getlocation",
+          `${process.env.REACT_APP_SERVER_URL}/api/location/getlocation`,
           {
             method: "GET",
             headers: {
@@ -126,7 +126,7 @@ const Addform = () => {
       const fetchCreatedEvents = async () => {
         setisspinning(true);
         const res = await fetch(
-          "http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/myCreatedEvents",
+          `${process.env.REACT_APP_SERVER_URL}/api/events/myCreatedEvents`,
           {
             method: "GET",
             headers: {

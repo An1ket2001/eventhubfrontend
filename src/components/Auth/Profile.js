@@ -13,7 +13,7 @@ const Profile = () => {
     if (auth.token !== "") {
       const fetchUserData = async () => {
         setisspinner(true);
-        const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/auth/getUser", {
+        const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/auth/getUser`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${auth.token}`,
@@ -25,7 +25,7 @@ const Profile = () => {
       };
       const fetchSubscribedData = async () => {
         setisspinner(true);
-        const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/getSubscribedEvents", {
+        const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/events/getSubscribedEvents`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${auth.token}`,

@@ -32,11 +32,11 @@ const Filter = ({filters,setFilters}) => {
     setSelectedDate("");
   }
   useEffect(()=>{
-    console.log(auth);
+    // console.log(auth);
     if(auth.token!=="")
     {
       const fetchVenue = async () => {
-        const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/location/getlocation",{
+        const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/location/getlocation`,{
           method:"GET",
           headers:{
             "Authorization":`Bearer ${auth.token}`

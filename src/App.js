@@ -23,6 +23,7 @@ function App() {
   },[]);
 return (
   <>
+  
   <AuthContext.Provider value={{token,isLoggedIn:isLoggedIn,isUserHr:isUserHr,login:loginfunc,logout:logout}}>
       <Router>
         

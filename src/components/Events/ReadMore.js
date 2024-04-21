@@ -27,7 +27,7 @@ const ReadMore = () => {
         toast.success("You Subscribed The Event");
     }
     const res = await fetch(
-      "http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/subscribeEvent",
+      `${process.env.REACT_APP_SERVER_URL}/api/events/subscribeEvent`,
       {
         method: "POST",
         headers: {

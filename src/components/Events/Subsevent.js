@@ -5,7 +5,7 @@ import { AuthContext } from "../../shared/AuthContext";
 const Subsevent = ({ events, handleEdit, title, createPage,handleDelete }) => {
   const auth=useContext(AuthContext);
   const handleUnSubscribe = async (id) => {
-    const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/subscribeEvent", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/events/subscribeEvent`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

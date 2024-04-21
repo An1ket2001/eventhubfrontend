@@ -139,7 +139,7 @@ const LoginSignup = () => {
 
   useEffect(() => {
     const fetchDesignation = async () => {
-      const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/auth/getdesg");
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/auth/getdesg`);
       const desgData = await res.json();
       setDesignationList(desgData);
     }
@@ -194,7 +194,7 @@ const LoginSignup = () => {
           )}
         </div>
 
-        {action === "Sign Up" ? <div></div> : <div className={styles.forgotpassword}>Forgot Password?<span>Click Here! </span></div>}
+        {/* {action === "Sign Up" ? <div></div> : <div className={styles.forgotpassword}>Forgot Password?<span>Click Here! </span></div>} */}
 
         <div className={styles.submitContainer}>
           <button className={styles.submit} onClick={handleSubmit}>{action}</button>

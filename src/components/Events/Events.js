@@ -11,7 +11,7 @@ const Events = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       setisspinning(true);
-      const res = await fetch("http://eventhubbackend.eastus.cloudapp.azure.com:5000/api/events/getEvents", {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/events/getEvents`, {
         method: "POST",
         headers: {
           'content-type': "application/json"
